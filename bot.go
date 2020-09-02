@@ -33,7 +33,7 @@ func main() {
 	updates := bot.ListenForWebhook("/")
 	for update := range updates {
 		if _, err := bot.Send(tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)); err != nil {
-			log.Print(err)
+			log.Printf("request failed: %v", err)
 		}
 	}
 
